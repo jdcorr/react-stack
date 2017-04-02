@@ -1,0 +1,10 @@
+{
+  "name": "boiler-js-stack",
+  "version": "1",
+  "main": "index.js",
+  "author": "JD Corr",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ."
+  }
+}
