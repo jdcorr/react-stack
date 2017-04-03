@@ -5,7 +5,7 @@
   "author": "JD Corr",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node src",
+    "start": "babel-node src/server",
     "test": "eslint src && flow && jest --coverage",
     "precommit": "yarn test",
     "prepush": "yarn test"
@@ -24,9 +24,14 @@
     "eslint-plugin-jsx-a11y": "^3.0.2 || ^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "flow-bin": "^0.42.0",
-    "jest": "^19.0.2"
+    "jest": "^19.0.2",
+    "nodemon": "^1.11.0"
   },
   "browserslist": [
     "> 1%"
-  ]
+  ],
+  "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.15.2"
+  }
 }
