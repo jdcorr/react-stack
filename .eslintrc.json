@@ -8,7 +8,7 @@
     "compat"
   ],
   "rules": {
-    "semi": [2, "never"],
+    "semi": 0,
     "no-unexpected-multiline": 2,
     "compat/compat": 2
   },
