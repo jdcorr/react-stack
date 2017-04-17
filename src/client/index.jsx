@@ -15,6 +15,7 @@ import App from '../shared/component/ui-App';
 import helloReducer from '../shared/reducer/hello';
 import { APP_CONTAINER_SELECTOR } from '../shared/config';
 import { isProd } from '../shared/util';
+import initSocket from './socket';
 
 
 // eslint-disable-next-line no-underscore-dangle
@@ -48,3 +49,5 @@ if (module.hot) {
     ReactDOM.render(wrapApp(NextApp, store), rootEl)
   })
 }
+
+initSocket(store);
