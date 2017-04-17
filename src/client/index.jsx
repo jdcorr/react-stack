@@ -8,17 +8,23 @@ import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import { BrowserRouter } from 'react-router-dom';
+import Immutable from 'immutable';
 
-import App from './component/ui-App';
-import helloReducer from './reducer/hello';
+import App from '../shared/component/ui-App';
+import helloReducer from '../shared/reducer/hello';
 import { APP_CONTAINER_SELECTOR } from '../shared/config';
 import { isProd } from '../shared/util';
-import { BrowserRouter } from 'react-router-dom';
+
 
 // eslint-disable-next-line no-underscore-dangle
-const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
+const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+const preloadedState = window.__PRELOADED_STATE__;
+/* eslint-enable no-underscore-dangle */
 
-const store = createStore(combineReducers({ hello: helloReducer }),
+const store = createStore(combineReducers(
+  { hello: helloReducer }),
+  { hello: Immutable.fromJS(preloadedState.hello) },
   composeEnhancers(applyMiddleware(thunkMiddleware)))
 
 const rootEl = document.querySelector(APP_CONTAINER_SELECTOR)
@@ -36,9 +42,9 @@ ReactDOM.render(wrapApp(App, store), rootEl)
 
 if (module.hot) {
   // flow-disable-next-line
-  module.hot.accept('./component/ui-App', () => {
+  module.hot.accept('../shared/component/ui-App', () => {
     // eslint-disable-next-line global-require
-    const NextApp = require('./component/ui-App').default
+    const NextApp = require('../shared/component/ui-App').default
     ReactDOM.render(wrapApp(NextApp, store), rootEl)
   })
 }
