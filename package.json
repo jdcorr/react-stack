@@ -14,7 +14,9 @@
     "lint": "eslint src webpack.config.babel.js --ext .js,.jsx",
     "test": "eslint src && flow && jest --coverage",
     "precommit": "yarn test",
-    "prepush": "yarn test"
+    "prepush": "yarn test",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
@@ -42,7 +44,8 @@
     "redux-mock-store": "^1.2.3",
     "rimraf": "^2.6.1",
     "webpack": "^2.3.3",
-    "webpack-dev-server": "^2.4.2"
+    "webpack-dev-server": "^2.4.2",
+    "@kadira/storybook": "^2.21.0"
   },
   "browserslist": [
     "> 1%"
