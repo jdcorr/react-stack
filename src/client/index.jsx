@@ -15,8 +15,7 @@ import App from '../shared/component/ui-App';
 import helloReducer from '../shared/reducer/hello';
 import { APP_CONTAINER_SELECTOR } from '../shared/config';
 import { isProd } from '../shared/util';
-import initSocket from './socket';
-
+// import initSocket from './socket'; // enable for socket.io support
 
 // eslint-disable-next-line no-underscore-dangle
 const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
@@ -50,4 +49,4 @@ if (module.hot) {
   })
 }
 
-initSocket(store);
+// initSocket(store); // enable socket.io support
